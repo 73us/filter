@@ -1,0 +1,1886 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.test-container {
+  background-color: #dde4e9;
+  margin: 0 auto;
+  width: 98%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+.test-container fieldset {
+  width: 250px;
+  background-color: #dde4e9;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  border: 1px solid #000;
+}
+.test-container fieldset legend {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 9px 0 5px;
+  width: 100%;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  height: 35px;
+  border: 1px solid #000;
+  margin: 0 4px 3px 0;
+}
+.test-container fieldset legend span {
+  color: gray;
+}
+.test-container fieldset legend:hover {
+  cursor: pointer;
+}
+.test-container fieldset .dropDown {
+  height: 0;
+  border-radius: 5px;
+  max-height: 250px;
+  padding: 0 5px;
+  transition: height 0.2s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.test-container fieldset .dropDown .top-dates {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dde4e9;
+  padding: 0 12px;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+.test-container fieldset .dropDown .top-dates button {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.test-container fieldset .dropDown .top-dates button:hover {
+  cursor: pointer;
+  border: 2px solid #dde4e9;
+}
+.test-container fieldset .dropDown .top-dates button:disabled {
+  cursor: default;
+  border: 0px solid #000;
+  color: rgba(16, 16, 16, 0.3) !important;
+}
+.test-container fieldset .dropDown .top-dates .month-label {
+  font-weight: bold;
+}
+.test-container fieldset .dropDown .middle-dates {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.test-container fieldset .dropDown .middle-dates button {
+  font-size: 10px;
+  font-weight: normal;
+  margin: 1px;
+}
+.test-container fieldset .dropDown .middle-dates button:hover {
+  cursor: default;
+  border: none;
+}
+.test-container fieldset .dropDown .bottom-dates {
+  width: 250px;
+  height: 165px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  padding-bottom: 2px;
+}
+.test-container fieldset .dropDown .bottom-dates .one-month-box {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom: 2px;
+}
+.test-container fieldset .dropDown .bottom-dates .one-month-box button {
+  margin: 1px;
+}
+.test-container fieldset .dropDown .bottom-dates .one-month-box .other-month-date {
+  color: rgba(16, 16, 16, 0.3);
+}
+.test-container fieldset .dropDown .bottom-dates .one-month-box button:hover,
+.test-container fieldset .dropDown .bottom-dates .one-month-box .other-month-date:hover {
+  cursor: pointer;
+  background-color: #0b5ed7;
+  color: #f8f9fa;
+}
+.test-container fieldset .dropDown .bottom-dates .one-month-box button:disabled {
+  cursor: default;
+  background-color: #eeeeee;
+  color: rgba(16, 16, 16, 0.3) !important;
+}
+.test-container fieldset .dropDown .bottom-dates .one-month-box .one-month-box:nth-of-type(1) {
+  display: flex;
+}
+.test-container fieldset .dropDown .bottom-dates .one-month-box .selected-dates {
+  background-color: #4384f5;
+  color: #f8f9fa;
+}
+.test-container fieldset .dropDown button {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+  padding-left: 4px;
+  background-color: transparent;
+  border: 0px solid #000;
+  border-radius: 5px;
+}
+
+.dialogWindow-container .dialogWindow-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialogWindow-container .dialogWindow-control #dialogIgnore, .dialogWindow-container .dialogWindow-control #dialogClean, .container main .right .data-container .data-main .data-options-container fieldset .right input, .container main .right .data-container .data-main .data-filtering-container .reset-btn-fieldset #resetFilters, .container main .left .report-container fieldset input:nth-of-type(2), .container main .left .report-container fieldset input, .container main .left .file-input-container fieldset:nth-last-of-type(1) #resetFiles, .container main .left .file-input-container fieldset:nth-last-of-type(1) #processFiles, .container main .left .file-input-container fieldset .input-chats input[type=file]::file-selector-button,
+.container main .left .file-input-container fieldset .input-tickets input[type=file]::file-selector-button {
+  width: 110px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  border: none;
+  outline: 0 solid transparent;
+  transition: background-color 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+.info-icon {
+  position: relative;
+  font-family: "Courier New", Courier, monospace !important;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.info-icon:hover {
+  cursor: pointer;
+}
+
+.info-message p {
+  font-weight: normal;
+  margin: 0;
+  font-size: 14px;
+  text-indent: 15px;
+}
+.info-message p::-moz-selection {
+  background-color: transparent;
+}
+.info-message p::selection {
+  background-color: transparent;
+}
+
+.info-message::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.info-message::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+
+.info-message::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  border-radius: 3px;
+}
+
+* ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+* ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 50px;
+  background-color: #f8f9fa;
+}
+* ::-webkit-scrollbar-thumb {
+  background: #4384f5;
+  border-radius: 50px;
+}
+
+.container {
+  margin: 0 auto;
+  min-width: 1500px;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+.container main {
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 98%;
+  max-width: 1900px;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.container main .left {
+  width: 19%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.container main .left .file-input-container {
+  max-height: 230px;
+  background-color: #dde4e9;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.container main .left .file-input-container fieldset:nth-of-type(1) {
+  position: relative;
+}
+.container main .left .file-input-container fieldset:nth-of-type(1) legend {
+  position: relative;
+}
+.container main .left .file-input-container fieldset:nth-of-type(1) legend .info-icon {
+  position: absolute;
+  text-align: right;
+  top: 0;
+  right: 0;
+  font-size: 14px;
+}
+.container main .left .file-input-container fieldset:nth-of-type(1) legend .info-message {
+  background-color: #f8f9fa;
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  z-index: 100;
+  width: 246px;
+  height: 160px;
+  border-radius: 5px;
+  overflow: auto;
+  display: none;
+  padding: 7px;
+}
+.container main .left .file-input-container fieldset:nth-of-type(1) legend .info-message p {
+  font-weight: normal;
+  margin: 0;
+}
+.container main .left .file-input-container fieldset:nth-of-type(1) legend .info-icon:hover + .info-message,
+.container main .left .file-input-container fieldset:nth-of-type(1) legend .info-message:hover {
+  display: block;
+}
+.container main .left .file-input-container fieldset:nth-of-type(1) legend .info-icon:after {
+  content: "";
+  background-color: transparent;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+}
+.container main .left .file-input-container fieldset {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.container main .left .file-input-container fieldset legend {
+  text-align: start;
+  font-size: 14px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.container main .left .file-input-container fieldset legend span {
+  font-weight: bold;
+}
+.container main .left .file-input-container fieldset input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin-left: 0;
+  accent-color: #4384f5;
+}
+.container main .left .file-input-container fieldset input[type=checkbox]:hover {
+  cursor: pointer;
+}
+.container main .left .file-input-container fieldset input[type=checkbox]:disabled {
+  cursor: default;
+}
+.container main .left .file-input-container fieldset .input-chats,
+.container main .left .file-input-container fieldset .input-tickets {
+  width: 88%;
+  height: 45px;
+  position: relative;
+}
+.container main .left .file-input-container fieldset .input-chats .chats-cover,
+.container main .left .file-input-container fieldset .input-chats .tickets-cover,
+.container main .left .file-input-container fieldset .input-tickets .chats-cover,
+.container main .left .file-input-container fieldset .input-tickets .tickets-cover {
+  background-color: rgba(221, 228, 233, 0.5882352941);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  transition: width 0.2s ease-in-out;
+}
+.container main .left .file-input-container fieldset .input-chats input[type=file],
+.container main .left .file-input-container fieldset .input-tickets input[type=file] {
+  width: 90%;
+  margin-bottom: 3px;
+}
+.container main .left .file-input-container fieldset .input-chats input[type=file]::file-selector-button,
+.container main .left .file-input-container fieldset .input-tickets input[type=file]::file-selector-button {
+  width: 115px;
+  background-color: #4384f5;
+  color: #f8f9fa;
+}
+.container main .left .file-input-container fieldset .input-chats input[type=file]::file-selector-button:hover,
+.container main .left .file-input-container fieldset .input-tickets input[type=file]::file-selector-button:hover {
+  cursor: pointer;
+  background-color: #0b5ed7;
+}
+.container main .left .file-input-container fieldset .input-chats input[type=file]::file-selector-button:active,
+.container main .left .file-input-container fieldset .input-tickets input[type=file]::file-selector-button:active {
+  cursor: pointer;
+  outline-width: 3px;
+  outline-color: rgba(67, 132, 245, 0.3);
+}
+.container main .left .file-input-container fieldset .input-chats .checkChat,
+.container main .left .file-input-container fieldset .input-chats .checkTicket,
+.container main .left .file-input-container fieldset .input-tickets .checkChat,
+.container main .left .file-input-container fieldset .input-tickets .checkTicket {
+  line-height: 40px;
+  font-weight: bold;
+  color: green;
+  opacity: 0;
+}
+.container main .left .file-input-container fieldset:nth-last-of-type(1) {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.container main .left .file-input-container fieldset:nth-last-of-type(1) #processFiles {
+  background-color: #157347;
+  color: #f8f9fa;
+}
+.container main .left .file-input-container fieldset:nth-last-of-type(1) #processFiles:hover {
+  cursor: pointer;
+  background-color: #09884d;
+}
+.container main .left .file-input-container fieldset:nth-last-of-type(1) #processFiles:active {
+  cursor: pointer;
+  outline-width: 3px;
+  outline-color: rgba(21, 115, 71, 0.3);
+}
+.container main .left .file-input-container fieldset:nth-last-of-type(1) #processFiles:disabled {
+  cursor: default;
+  background-color: #8ac9ab;
+  outline-width: 0;
+}
+.container main .left .file-input-container fieldset:nth-last-of-type(1) #resetFiles {
+  background-color: #dc3545;
+  color: #f8f9fa;
+}
+.container main .left .file-input-container fieldset:nth-last-of-type(1) #resetFiles:hover {
+  cursor: pointer;
+  background-color: #bb2d3b;
+}
+.container main .left .file-input-container fieldset:nth-last-of-type(1) #resetFiles:active {
+  cursor: pointer;
+  outline-width: 3px;
+  outline-color: rgba(220, 53, 69, 0.3);
+}
+.container main .left .file-input-container fieldset:nth-last-of-type(1) #resetFiles:disabled {
+  cursor: default;
+  background-color: #c97981;
+  outline-width: 0;
+}
+.container main .left .report-container {
+  max-height: 380px;
+  height: 0;
+  background-color: #dde4e9;
+  display: flex;
+  flex-flow: column wrap;
+  opacity: 0;
+  padding: 15px 20px;
+  border-radius: 15px;
+  transition: height 0.2s ease-in-out;
+  transition: opacity 0.1s ease-in-out 0.1s;
+  font-size: 14px;
+}
+.container main .left .report-container div {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.container main .left .report-container div h2 {
+  width: 95%;
+  text-justify: auto;
+  margin-bottom: 5px;
+}
+.container main .left .report-container div p {
+  margin-left: 25px;
+}
+.container main .left .report-container div .info-message {
+  background-color: #f8f9fa;
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  z-index: 100;
+  width: 246px;
+  height: 160px;
+  overflow: auto;
+  border-radius: 5px;
+  display: none;
+  padding: 7px;
+  border: 1px solid #dde4e9;
+}
+.container main .left .report-container div .info-message p {
+  font-weight: normal;
+  margin: 0;
+}
+.container main .left .report-container div .info-icon:hover + .info-message,
+.container main .left .report-container div .info-message:hover {
+  display: block;
+}
+.container main .left .report-container div .info-icon:after {
+  content: "";
+  background-color: transparent;
+  position: absolute;
+  border-radius: 50px 0 0 0;
+  top: 5px;
+  right: 0;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+}
+.container main .left .report-container fieldset {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  border-radius: 10px;
+}
+.container main .left .report-container fieldset legend {
+  margin-bottom: 5px;
+}
+.container main .left .report-container fieldset input {
+  background-color: #fdc51e;
+  color: #000000;
+}
+.container main .left .report-container fieldset input:hover {
+  cursor: pointer;
+  background-color: #eeb407;
+}
+.container main .left .report-container fieldset input:active {
+  cursor: pointer;
+  outline-width: 3px;
+  outline-color: rgba(255, 193, 7, 0.3);
+}
+.container main .left .report-container fieldset input:disabled {
+  cursor: default;
+  background-color: #eed37b;
+  outline-width: 0;
+}
+.container main .left .report-container fieldset input:nth-of-type(2) {
+  background-color: #4384f5;
+  color: #f8f9fa;
+}
+.container main .left .report-container fieldset input:nth-of-type(2):hover {
+  cursor: pointer;
+  background-color: #0b5ed7;
+}
+.container main .left .report-container fieldset input:nth-of-type(2):active {
+  cursor: pointer;
+  outline-width: 3px;
+  outline-color: rgba(67, 132, 245, 0.3);
+}
+.container main .left .report-container fieldset input:nth-of-type(2):disabled {
+  cursor: default;
+  background-color: #8bb8fc;
+  outline-width: 0;
+}
+.container main .right {
+  width: 79%;
+}
+.container main .right .data-container {
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #dde4e9;
+  width: 100%;
+  min-width: 510px;
+  min-height: auto;
+  border-radius: 15px;
+}
+.container main .right .data-container .start-instraction-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  padding: 10px 0 15px;
+}
+.container main .right .data-container .start-instraction-block .start-instraction-header {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+.container main .right .data-container .start-instraction-block .start-instraction-header::before {
+  position: absolute;
+  bottom: -34px;
+  right: 20%;
+  display: block;
+  content: "";
+  background-color: white;
+  width: 2%;
+  height: 15px;
+  border-radius: 0 15px 0 15px;
+  z-index: 10;
+}
+.container main .right .data-container .start-instraction-block .start-instraction-header::after {
+  z-index: 10;
+  position: absolute;
+  bottom: -34px;
+  left: 20%;
+  display: block;
+  content: "";
+  background-color: white;
+  width: 2%;
+  height: 15px;
+  border-radius: 15px 0 15px 0;
+}
+.container main .right .data-container .start-instraction-block img {
+  width: 60%;
+  border-radius: 15px;
+}
+.container main .right .data-container .data-main {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  width: 100%;
+  min-width: 510px;
+}
+.container main .right .data-container .data-main .info-box {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.container main .right .data-container .data-main .info-box .info-icon {
+  position: absolute;
+  text-align: right;
+  top: 5px;
+  right: 10px;
+}
+.container main .right .data-container .data-main .info-box .info-message {
+  background-color: #f8f9fa;
+  position: absolute;
+  top: 0;
+  right: 15px;
+  z-index: 100;
+  width: 320px;
+  height: 145px;
+  border-radius: 5px;
+  border: 1px solid #dde4e9;
+  overflow: auto;
+  display: none;
+  padding: 7px;
+}
+.container main .right .data-container .data-main .info-box .info-message p {
+  font-weight: normal;
+  margin: 0;
+}
+.container main .right .data-container .data-main .info-box .info-icon:hover + .info-message,
+.container main .right .data-container .data-main .info-box .info-message:hover {
+  display: block;
+  cursor: pointer;
+}
+.container main .right .data-container .data-main .info-box .info-icon:after {
+  content: "";
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 17px;
+  height: 25px;
+}
+.container main .right .data-container .data-main .data-filtering-container {
+  width: 97%;
+  background-color: #dde4e9;
+  border-radius: 15px;
+  padding: 10px 17px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: start;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset {
+  width: 180px;
+  background-color: #dde4e9;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  position: relative;
+  font-size: 14px;
+  font-weight: bold;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset legend {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  height: 40px;
+  border: 1px solid #f8f9fa;
+  border-bottom: none !important;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset legend span {
+  color: gray;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset legend:hover {
+  cursor: pointer;
+  background-color: #0b5ed7;
+  border-color: #0b5ed7;
+  color: white;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset legend::-moz-selection {
+  background-color: transparent !important;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset legend::selection {
+  background-color: transparent !important;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  border-radius: 0 0 10px 10px;
+  overflow-y: auto;
+  max-height: 200px;
+  z-index: 100;
+  transition: height 0.2s ease-in-out;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  width: 100%;
+  background-color: #f8f9fa;
+  height: 40px;
+  border-bottom: 2px solid #dde4e9;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label input {
+  width: 16px;
+  margin-right: 5px;
+  margin: 0;
+  height: 16px;
+  accent-color: #4384f5;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label .filter-label-text-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 87%;
+  height: 20px;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label .filter-label-text-box .labelBadge {
+  width: 79%;
+  overflow: hidden;
+  text-wrap: nowrap;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label .filter-label-text-box .countBadge {
+  height: 20px;
+  width: 30%;
+  padding: 0 2px;
+  background-color: #f8f9fa;
+  border: 1px solid #000;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-left: 3px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label .filter-label-text-box .countBadge::-moz-selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label .filter-label-text-box .countBadge::selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label div::-moz-selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label div::selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label:nth-of-type(1) {
+  border-top: 2px solid #dde4e9;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label:nth-last-of-type(1) {
+  border-bottom: none;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label:hover {
+  cursor: pointer;
+  background-color: #4384f5;
+  border-color: #4384f5;
+  color: white;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label:hover input {
+  cursor: pointer;
+  accent-color: white;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown label:hover .filter-label-text-box .countBadge {
+  cursor: pointer;
+  background-color: #4384f5;
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown fieldset:nth-of-type(1),
+.container main .right .data-container .data-main .data-filtering-container fieldset .dropDown fieldset:nth-of-type(2) {
+  width: 50%;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset:nth-of-type(3) {
+  width: 220px;
+}
+.container main .right .data-container .data-main .data-filtering-container fieldset:nth-of-type(3) .dropDown label .filter-label-text-box {
+  width: 88%;
+}
+.container main .right .data-container .data-main .data-filtering-container .reset-btn-fieldset {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+}
+.container main .right .data-container .data-main .data-filtering-container .reset-btn-fieldset #resetFilters {
+  color: #f8f9fa;
+  background-color: #dc3545;
+}
+.container main .right .data-container .data-main .data-filtering-container .reset-btn-fieldset #resetFilters:hover {
+  cursor: pointer;
+  background-color: #bb2d3b;
+}
+.container main .right .data-container .data-main .data-filtering-container .reset-btn-fieldset #resetFilters:active {
+  cursor: pointer;
+  outline-width: 3px;
+  outline-color: rgba(255, 0, 0, 0.3);
+}
+.container main .right .data-container .data-main .data-filtering-container .reset-btn-fieldset #resetFilters:disabled {
+  cursor: default;
+  outline-width: 0;
+  background-color: #c97981;
+}
+.container main .right .data-container .data-main .data-options-container {
+  width: 100%;
+  background-color: #dde4e9;
+  border-radius: 15px;
+  padding: 10px 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: end;
+}
+.container main .right .data-container .data-main .data-options-container .info-box {
+  position: absolute;
+  top: 72px;
+  right: 10px;
+}
+.container main .right .data-container .data-main .data-options-container .info-box .info-icon {
+  position: absolute;
+  text-align: right;
+  top: 5px;
+  right: 10px;
+}
+.container main .right .data-container .data-main .data-options-container .info-box .info-message {
+  background-color: #f8f9fa;
+  position: absolute;
+  top: 0;
+  right: 15px;
+  z-index: 100;
+  width: 320px;
+  height: 300px;
+  border-radius: 5px;
+  border: 1px solid #dde4e9;
+  overflow: auto;
+  display: none;
+  padding: 7px;
+}
+.container main .right .data-container .data-main .data-options-container .info-box .info-message p {
+  font-weight: normal;
+  margin: 0;
+}
+.container main .right .data-container .data-main .data-options-container .info-box .info-icon:hover + .info-message,
+.container main .right .data-container .data-main .data-options-container .info-box .info-message:hover {
+  display: block;
+  cursor: pointer;
+}
+.container main .right .data-container .data-main .data-options-container .info-box .info-icon:after {
+  content: "";
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 17px;
+  height: 25px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding: 5px 17px;
+  border-bottom: 3px solid #6c757d;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left {
+  margin: 0;
+  width: 60%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box {
+  width: 250px;
+  margin-right: 20px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset {
+  width: 250px;
+  background-color: #dde4e9;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  position: relative;
+  border: none;
+  padding: 0;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset legend {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  height: 40px;
+  border-bottom-color: #dde4e9 !important;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset legend span {
+  color: gray;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset legend:hover {
+  cursor: pointer;
+  background-color: #0b5ed7;
+  color: #f8f9fa;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown {
+  width: 100%;
+  height: 0;
+  border-radius: 0 0 10px 10px;
+  max-height: 270px;
+  padding: 0 5px;
+  position: absolute;
+  transition: height 0.2s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 100;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .top-dates {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dde4e9;
+  padding: 0 12px;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .top-dates button {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .top-dates button:hover {
+  cursor: pointer;
+  border: 2px solid #dde4e9;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .top-dates button:disabled {
+  cursor: default;
+  border: 0px solid #000;
+  color: rgba(16, 16, 16, 0.3) !important;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .top-dates .month-label {
+  font-weight: bold;
+  font-size: 14px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .middle-dates {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .middle-dates button {
+  font-size: 10px;
+  font-weight: normal;
+  margin: 1px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .middle-dates button:hover {
+  cursor: default;
+  border: none;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .bottom-dates {
+  width: 250px;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  padding-bottom: 2px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .bottom-dates .one-month-box {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom: 5px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .bottom-dates .one-month-box button {
+  margin: 1px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .bottom-dates .one-month-box .other-month-date {
+  color: rgba(16, 16, 16, 0.3);
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .bottom-dates .one-month-box button:hover,
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .bottom-dates .one-month-box .other-month-date:hover {
+  cursor: pointer;
+  background-color: #0b5ed7 !important;
+  color: #f8f9fa;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .bottom-dates .one-month-box button:disabled {
+  cursor: default;
+  background-color: #eeeeee !important;
+  color: rgba(16, 16, 16, 0.3) !important;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .bottom-dates .one-month-box .one-month-box:nth-of-type(1) {
+  display: flex;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown .bottom-dates .one-month-box .selected-dates {
+  background-color: #4384f5;
+  color: #f8f9fa;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .date-filter-box .datesList-fieldset .dropDown button {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+  padding-left: 4px;
+  background-color: transparent;
+  border: 0px solid #000;
+  border-radius: 5px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .left .count-box span .count-number {
+  font-weight: bold;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right {
+  margin: 0;
+  width: 37%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: end;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right input {
+  border-radius: 0;
+  color: #f8f9fa;
+  outline: none;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right input:hover {
+  cursor: pointer;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right input:active {
+  cursor: pointer;
+  outline-width: 3px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right input:disabled {
+  cursor: default;
+  outline-width: 0;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right input:nth-of-type(1) {
+  border-radius: 10px 0 0 10px;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right input:nth-last-of-type(1) {
+  border-radius: 0 10px 10px 0;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right #downloadCustomReport {
+  background-color: #4384f5;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right #downloadCustomReport:hover {
+  cursor: pointer;
+  background-color: #0b5ed7;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right #downloadCustomReport:disabled {
+  cursor: default;
+  background-color: #8bb8fc;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right #showDataTable {
+  background-color: #157347;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right #showDataTable:hover {
+  cursor: pointer;
+  background-color: #09884d;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right #showDataTable:disabled {
+  cursor: default;
+  background-color: #157347;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right #showMoreOptions {
+  color: #000000;
+  background-color: #fdc51e;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right #showMoreOptions:hover {
+  cursor: pointer;
+  background-color: #eeb407;
+}
+.container main .right .data-container .data-main .data-options-container fieldset .right #showMoreOptions:disabled {
+  cursor: default;
+  background-color: #eed37b;
+}
+.container main .right .data-container .data-main .display-data-container {
+  background-color: #dde4e9;
+  margin: 0 auto;
+  width: 98%;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  height: 100%;
+  padding-bottom: 15px;
+}
+.container main .right .data-container .data-main .display-data-container .menu {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.container main .right .data-container .data-main .display-data-container .menu li {
+  list-style: none;
+  width: 19%;
+  width: 200px;
+  background-color: #f8f9fa;
+  height: 40px;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  border: 1px solid #000000;
+  transition: background-color 0.2s ease-in-out;
+  transition: border-radius 0.2s ease-in-out;
+  color: #000000;
+  font-weight: bold;
+  position: relative;
+}
+.container main .right .data-container .data-main .display-data-container .menu li:hover {
+  cursor: pointer;
+  background-color: #e0e2e4;
+}
+.container main .right .data-container .data-main .display-data-container .menu li::-moz-selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .display-data-container .menu li::selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .display-data-container .menu .active {
+  background-color: #f8f9fa;
+  border: 1px solid #000000;
+  border-bottom: none;
+  z-index: 2;
+  height: 40px;
+}
+.container main .right .data-container .data-main .display-data-container .menu .active:hover {
+  border-radius: 20px 20px 0 0;
+  background-color: #f8f9fa;
+}
+.container main .right .data-container .data-main .display-data-container .content {
+  position: relative;
+  min-width: 500px;
+  height: 450px;
+  width: 100%;
+  margin-top: 39px;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+}
+.container main .right .data-container .data-main .display-data-container .content table {
+  height: 450px;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead tr {
+  position: relative;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead tr th {
+  text-align: left;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead tr th span::-moz-selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead tr th span::selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead tr th:hover {
+  cursor: pointer;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead tr th::-moz-selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead tr th::selection {
+  background-color: transparent;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead tr th:first-of-type {
+  border-radius: 5px 0 0 5px;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead tr th:last-of-type {
+  border-radius: 0 5px 5px 0;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead button {
+  position: absolute;
+  display: block;
+  top: 50px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #f8f9fa;
+  background-image: url(../images/copy-icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid #dde4e9;
+  z-index: 10;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead button:hover {
+  cursor: pointer;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead button:disabled {
+  cursor: default;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead .check-btn {
+  position: absolute;
+  display: none;
+  top: 50px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #f8f9fa;
+  background-image: url(../images/accept.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid #dde4e9;
+  z-index: 10;
+}
+.container main .right .data-container .data-main .display-data-container .content table thead .copy-label {
+  font-size: 10px;
+  z-index: 20;
+  background-color: #dde4e9;
+  position: absolute;
+  top: 58px;
+  right: 31px;
+  padding: 2px 0;
+  border-radius: 2px;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.5s ease-in-out;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 {
+  min-width: 850px;
+  background-color: #f8f9fa;
+  display: none;
+  overflow: auto;
+  border: 1px solid #000000;
+  padding: 5px;
+  border-radius: 5px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 thead {
+  margin-top: 5px;
+  position: relative;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 thead tr {
+  padding: 0 15px;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  background-color: #dde4e9;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 thead tr th {
+  padding: 15px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 thead tr th:nth-of-type(1) {
+  width: 430px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 thead tr th:nth-of-type(2) {
+  width: 150px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 thead tr th:nth-of-type(3) {
+  width: 250px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 thead tr:after {
+  position: absolute;
+  content: "";
+  top: -10px;
+  left: 0px;
+  width: 100%;
+  height: 10px;
+  background-color: #f8f9fa;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 tbody tr {
+  border-bottom: 2px solid #dde4e9;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 tbody tr td {
+  padding: 15px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 tbody tr td:first-of-type {
+  border-radius: 5px 0 0 5px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 tbody tr td:last-of-type {
+  border-radius: 0 5px 5px 0;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-1 tbody tr:last-of-type {
+  border: none;
+  font-weight: bold;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 {
+  min-width: 850px;
+  background-color: #f8f9fa;
+  display: none;
+  overflow: auto;
+  border: 1px solid #000000;
+  padding: 5px;
+  border-radius: 5px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 thead {
+  margin-top: 5px;
+  position: relative;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 thead tr {
+  padding: 0 15px;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  background-color: #dde4e9;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 thead tr th {
+  padding: 15px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 thead tr th:nth-of-type(1) {
+  width: 430px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 thead tr th:nth-of-type(2) {
+  width: 150px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 thead tr th:nth-of-type(3) {
+  width: 250px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 thead tr:after {
+  position: absolute;
+  content: "";
+  top: -10px;
+  left: 0px;
+  width: 100%;
+  height: 10px;
+  background-color: #f8f9fa;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 tbody tr {
+  border-bottom: 2px solid #dde4e9;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 tbody tr td {
+  padding: 15px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 tbody tr td:first-of-type {
+  border-radius: 5px 0 0 5px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 tbody tr td:last-of-type {
+  border-radius: 0 5px 5px 0;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-2 tbody tr:last-of-type {
+  border: none;
+  font-weight: bold;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 {
+  min-width: 650px;
+  background-color: #f8f9fa;
+  display: none;
+  overflow: auto;
+  border: 1px solid #000000;
+  padding: 5px;
+  border-radius: 5px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead {
+  position: relative;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr {
+  position: sticky;
+  top: 0;
+  background-color: #dde4e9;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr th {
+  padding: 15px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr th:nth-of-type(1) {
+  width: 130px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr th:nth-of-type(2) {
+  width: 90px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr th:nth-of-type(3) {
+  width: 100px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr th:nth-of-type(4) {
+  font-weight: bold;
+  width: 100px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr th:nth-of-type(5) {
+  width: 190px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr th:nth-of-type(6) {
+  width: 230px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr th:nth-of-type(7) {
+  width: 250px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 thead tr:after {
+  position: absolute;
+  content: "";
+  top: -10px;
+  left: 0px;
+  width: 100%;
+  height: 10px;
+  background-color: #f8f9fa;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 tbody tr {
+  border-bottom: 2px solid #dde4e9;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 tbody tr td {
+  padding: 15px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 tbody tr td:first-of-type {
+  border-radius: 5px 0 0 5px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 tbody tr td:nth-of-type(4) {
+  font-weight: bold;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 tbody tr td:last-of-type {
+  border-radius: 0 5px 5px 0;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-3 tbody tr:last-of-type {
+  border: none;
+  font-weight: bold;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 {
+  min-width: 850px;
+  background-color: #f8f9fa;
+  display: none;
+  overflow: auto;
+  border: 1px solid #000000;
+  padding: 5px;
+  border-radius: 5px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 thead {
+  position: relative;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 thead tr {
+  position: sticky;
+  top: 0;
+  background-color: #dde4e9;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 thead tr th {
+  padding: 15px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 thead tr th:nth-of-type(1) {
+  width: 430px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 thead tr th:nth-of-type(2) {
+  width: 150px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 thead tr th:nth-of-type(3) {
+  width: 250px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 thead tr:after {
+  position: absolute;
+  content: "";
+  top: -10px;
+  left: 0px;
+  width: 100%;
+  height: 10px;
+  background-color: #f8f9fa;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 tbody tr {
+  border-bottom: 2px solid #dde4e9;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 tbody tr td {
+  padding: 15px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 tbody tr td:first-of-type {
+  border-radius: 5px 0 0 5px;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 tbody tr td:last-of-type {
+  border-radius: 0 5px 5px 0;
+}
+.container main .right .data-container .data-main .display-data-container .content #data-table-4 tbody tr:last-of-type {
+  border: none;
+  font-weight: bold;
+}
+.container footer {
+  margin-bottom: 0;
+  background-color: #dde4e9;
+  height: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 5px;
+  position: relative;
+  font-size: 10px;
+  font-weight: bold;
+}
+.container footer .copyright-container {
+  text-align: center;
+}
+.container footer .copyright-container p {
+  color: #000000;
+}
+.container footer .copyright-container p a {
+  color: #000000;
+  text-decoration: none;
+}
+.container footer .version {
+  position: absolute;
+  right: 10px;
+}
+
+.dialogWindow-container {
+  position: absolute;
+  top: 0;
+  background-color: rgba(128, 128, 128, 0.464);
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+.dialogWindow-container .dialogWindow {
+  background-color: #f8f9fa;
+  width: 400px;
+  height: 320px;
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.dialogWindow-container .dialogWindow-header {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  position: relative;
+}
+.dialogWindow-container .dialogWindow-header h2 {
+  font-size: 40px;
+  text-align: center;
+}
+.dialogWindow-container .dialogWindow-header .info-icon {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+.dialogWindow-container .dialogWindow-header .info-message {
+  background-color: #f8f9fa;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  width: 340px;
+  height: 260px;
+  overflow: auto;
+  border-radius: 5px;
+  display: none;
+  padding: 7px;
+  border: 2px solid #dde4e9;
+}
+.dialogWindow-container .dialogWindow-header .info-message p {
+  font-weight: normal;
+  margin: 0;
+}
+.dialogWindow-container .dialogWindow-header .info-icon:hover + .info-message,
+.dialogWindow-container .dialogWindow-header .info-message:hover {
+  display: block;
+}
+.dialogWindow-container .dialogWindow-header .info-icon:after {
+  content: "";
+  background-color: transparent;
+  position: absolute;
+  top: 6px;
+  right: 0;
+  z-index: 100;
+  width: 25px;
+  height: 20px;
+  transform: rotate(-45deg);
+}
+.dialogWindow-container .dialogWindow-content {
+  width: 100%;
+  height: 340px;
+}
+.dialogWindow-container .dialogWindow-content p {
+  margin-bottom: 5px;
+}
+.dialogWindow-container .dialogWindow-content label {
+  display: flex;
+  align-items: center;
+}
+.dialogWindow-container .dialogWindow-content label input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin-left: 0;
+  accent-color: #4384f5;
+}
+.dialogWindow-container .dialogWindow-content label input[type=checkbox]:hover {
+  cursor: pointer;
+}
+.dialogWindow-container .dialogWindow-content label input[type=checkbox]:disabled {
+  cursor: default;
+  accent-color: #8bb8fc;
+}
+.dialogWindow-container .dialogWindow-content label span::-moz-selection {
+  background: transparent;
+}
+.dialogWindow-container .dialogWindow-content label span::selection {
+  background: transparent;
+}
+.dialogWindow-container .dialogWindow-content label:hover {
+  cursor: pointer;
+}
+.dialogWindow-container .dialogWindow-content label::-moz-selection {
+  background: transparent;
+}
+.dialogWindow-container .dialogWindow-content label::selection {
+  background: transparent;
+}
+.dialogWindow-container .dialogWindow-control {
+  width: 100%;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+.dialogWindow-container .dialogWindow-control label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+.dialogWindow-container .dialogWindow-control label input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin-left: 0;
+  margin-right: 14px;
+  margin: 0 15px 0 0;
+  accent-color: #4384f5;
+}
+.dialogWindow-container .dialogWindow-control label input[type=checkbox]:hover {
+  cursor: pointer;
+}
+.dialogWindow-container .dialogWindow-control label:hover {
+  cursor: pointer;
+}
+.dialogWindow-container .dialogWindow-control label::-moz-selection {
+  background: transparent;
+}
+.dialogWindow-container .dialogWindow-control label::selection {
+  background: transparent;
+}
+.dialogWindow-container .dialogWindow-control #dialogClean {
+  background-color: #157347;
+  color: #f8f9fa;
+}
+.dialogWindow-container .dialogWindow-control #dialogClean:hover {
+  cursor: pointer;
+  background-color: #09884d;
+}
+.dialogWindow-container .dialogWindow-control #dialogClean:active {
+  cursor: pointer;
+  outline-width: 3px;
+  outline-color: rgba(21, 115, 71, 0.3);
+}
+.dialogWindow-container .dialogWindow-control #dialogClean:disabled {
+  cursor: default;
+  background-color: #8ac9ab;
+  outline-width: 0;
+}
+.dialogWindow-container .dialogWindow-control #dialogIgnore {
+  background-color: #dc3545;
+  color: #f8f9fa;
+}
+.dialogWindow-container .dialogWindow-control #dialogIgnore:hover {
+  cursor: pointer;
+  background-color: #bb2d3b;
+}
+.dialogWindow-container .dialogWindow-control #dialogIgnore:active {
+  cursor: pointer;
+  outline-width: 3px;
+  outline-color: rgba(220, 53, 69, 0.3);
+}
+.dialogWindow-container .dialogWindow-control #dialogIgnore:disabled {
+  cursor: default;
+  background-color: #c97981;
+  outline-width: 0;
+}
+.dialogWindow-container .load-box {
+  background-color: #f8f9fa;
+  width: 300px;
+  height: 200px;
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialogWindow-container .load-box .load-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/icons8-analyze.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+}
+.dialogWindow-container .load-box .load-tip {
+  font-size: 14px;
+}
+
+.firstLast_date {
+  background-color: #0b5ed7 !important;
+  color: #f8f9fa !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.showDropDown {
+  height: auto !important;
+  border: 1px solid #6c757d;
+  border-top: none;
+}
+
+.activeDropDown {
+  border-radius: 10px 10px 0 0 !important;
+  border: 1px solid #6c757d !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.badgeShadow {
+  box-shadow: -10px 0px 7px 4px #f8f9fa !important;
+}
+
+label:hover .badgeShadow {
+  box-shadow: -10px 0px 7px 4px #4384f5 !important;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1) {
+  .container main .right .data-container .display-data-container .content {
+    height: 650px;
+  }
+  .container main .right .data-container .display-data-container .content table {
+    height: 650px;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,23 @@
+// @mixin defBlockStyles($w, $h, $bg) {
+//   width: $w;
+//   height: $h;
+//   background-color: $bg;
+// }
+// @mixin itemIcon($pos, $repeat, $size) {
+//   background-position: $pos;
+//   background-repeat: $repeat;
+//   background-size: $size;
+// }
+// @mixin fontStyle($fs, $fw, $ls) {
+//   font-size: $fs;
+//   font-weight: $fw;
+//   letter-spacing: $ls;
+// }
+
+@mixin btnSizes($w, $h, $bg, $bdrd, $clr) {
+  width: $w;
+  height: $h;
+  background-color: $bg;
+  border-radius: $bdrd;
+  color: $clr;
+}

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="shortcut icon" href="./images/icon_1.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container ">
+        <!-- MAIN START -->
+        <main>
+            <div class="left">
+                <!-- FILE INPUT PART START -->
+                <form class="file-input-container ">
+                    <fieldset>
+                        <legend>Завантажте звіт по <span>чатах</span>
+                            <p class="info-icon">&#8505;</p>
+                            <div class="info-message">
+                                <p>Для того щоб вивантажити звіт поставте галочку напроти відповідного типу. Після того
+                                    як файл буде обрано система перевірить чи не переплутаний звіт.</p>
+                                <p>Кнопка "Опрацювати" стане активною як тільки будуть завантажено правильні/ий файл/и.
+                                </p>
+                                <p>Кнопка "Скинути" очищує вибрані файли і опції та повертає сторінку до початкового
+                                    вигляду.</p>
+                            </div>
+                        </legend>
+                        <input type="checkbox" name="isChatsNeeded" id="isChatsNeeded">
+                        <div class="input-chats">
+                            <div class="chats-cover"></div>
+                            <input type="file" name="chatsFileInput" id="chatsFileInput" onchange="" accept=".csv"
+                                disabled>
+                            <span class="checkChat"></span>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Завантажте звіт по <span>тікетах</span></legend>
+                        <input type="checkbox" name="isTicketsNeeded" id="isTicketsNeeded">
+                        <div class="input-tickets">
+                            <div class="tickets-cover"></div>
+                            <input type="file" name="ticketsFileInput" id="ticketsFileInput" onchange="" accept=".csv"
+                                disabled>
+                            <span class="checkTicket"></span>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <input type="button" id="processFiles" value="Опрацювати" onclick="readFiles()" disabled>
+                        <input type="button" id="resetFiles" value="Скинути" onclick="rmvFiles()" disabled>
+                    </fieldset>
+                </form>
+                <!-- FILE INPUT PART END -->
+
+                <!-- DOWNLOAD REPORT PART START -->
+                <div class="report-container">
+                </div>
+                <!-- DOWNLOAD REPORT PART END -->
+            </div>
+            <div class="right">
+                <!-- DISPLAY DATA PART START -->
+                <div class="data-container">
+                    <div class="start-instraction-block">
+                        <h1 class="start-instraction-header">Для початку роботи завантажте звіт/и.</h1>
+                        <img src="./images/startGuideGIF.gif" alt="gif how to start guide">
+                    </div>
+                    <div class="data-main hide">
+                        <div class="info-box">
+                            <p class="info-icon">&#8505;</p>
+                            <div class="info-message">
+                                <p>В даній секції у вас є фільтри які побудовані на основі отриманої інформації.<br>
+                                <p>Щоб обрати якийсь конкретний пункт просто натисніть на нього. Коли ні одна опція не
+                                    вибрана
+                                    за замовчуванням будуть відображатися усі пункти.</p>
+                                <p>Кнопка "Скинути" скидає усі обрані вами фільтри та сортування таблиць до початкових
+                                    значень.</p>
+                            </div>
+                        </div>
+                        <div class="data-filtering-container"></div>
+                        <div class="data-options-container">
+                            <div class="info-box">
+                                <p class="info-icon">&#8505;</p>
+                                <div class="info-message">
+                                    <p>Під фільтрами ви можете бачити дату та кількість звернень за той період вигрузки/ок
+                                        які ви надали.</p>
+                                        <p>Місце відображення дати є відповідним фільтром в якому ви можете обрати період за який бажаєте отримати інформацію.</p>
+                                    <p>Опція "Звіт" стане активною як тільки ви обирете хоч один фільтр або проміжок дат.</p>
+                                    <p>Кнопка "Таблиця" відкриє зведені таблиці які містять різну інформацію по:<br>
+                                        - категоріяx (конкретні назви, кількості, відсоткове співідношення);<br>
+                                        - мовах (найменування мов, їх кількості та співідношення одна до одної);<br>
+                                        - менеджерах (нік менеджера, кількісті опрацьованих ним чатів, листів та всього
+                                        звернень, відсоткове співідношення, середня тривалість чатів працівника, швидкість
+                                        першої відповіді в чатах);<br>
+                                        - мітках (назва мітки, її кількість та співідношення у відсотках).</p>
+                                    <p>Кожна таблиця буде оновлюватися відповідно до того фільтру який ви обираєте.</p>
+                                    <p>Колонки мають функцію сортування яка працює по натисканню на назву колонки, тип
+                                        сортування змінюється автоматично від А до Я та навпаки.</p>
+                                    <p>В деяких таблицях присутня кнопка копіювання, яка дозволяє швидко скопіювати данні з
+                                        конкретної таблиці.</p>
+                                    <p>Кнопка "Більше" поки неактивна і очікує свого зіркового часу для виконання інших
+                                        цікавих завдань.</p>
+                                </div>
+                            </div>
+                            <fieldset class="filter-control-fieldset">
+                                <div class="left">
+                                    <!-- FILTER BY DATE START -->
+                                    <div class="date-filter-box">
+                                        <fieldset class="datesList-fieldset">
+                                            <legend id="dates-range-label" name="datesDropDown"
+                                                onclick="showDropDown(event)">draft &#11206;</legend>
+                                            <div name="datesDropDown" id="datesDropDown" class="dropDown">
+                                                <div name="datesDropDown" class="top-dates">
+                                                    <button name="datesDropDown" id="month-prev"
+                                                        onclick="dateSlidePage(event)" disabled>&lt;</button>
+                                                    <span name="datesDropDown" class="month-label">Вересень</span>
+                                                    <button name="datesDropDown" id="month-next"
+                                                        onclick="dateSlidePage(event)" disabled>&gt;</button>
+                                                </div>
+
+                                                <div name="datesDropDown" class="middle-dates">
+                                                    <button name="datesDropDown">Пн</button>
+                                                    <button name="datesDropDown">Вт</button>
+                                                    <button name="datesDropDown">Ср</button>
+                                                    <button name="datesDropDown">Чт</button>
+                                                    <button name="datesDropDown">Пт</button>
+                                                    <button name="datesDropDown">Сб</button>
+                                                    <button name="datesDropDown">Нд</button>
+                                                </div>
+
+                                                <div name="datesDropDown" class="bottom-dates"
+                                                    onclick="pickDate(event)">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <!-- FILTER BY DATE END -->
+                                    <div class="count-box"></div>
+                                </div>
+                                <div class="right">
+                                    <input type="button" id="downloadCustomReport"
+                                        onclick="createReport(savedfilteredDataArr,'filteredData')" value="Звіт"
+                                        disabled>
+                                    <input type="button" id="showDataTable" onclick="showDataTable()" value="Таблиця">
+                                    <input type="button" id="showMoreOptions" onclick="moreOptions()" value="Більше"
+                                        disabled>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="display-data-container hide">
+                            <nav class="menu">
+                                <li id="item-1" value="item1" class="active">Категорії</li>
+                                <li id="item-2" value="item2">Мови</li>
+                                <li id="item-3" value="item3">Менеджери</li>
+                                <li id="item-4" value="item4">Мітки</li>
+                            </nav>
+                            <div class="content">
+                                <!-- CATEGORIES TABLE 1 START -->
+                                <table id="data-table-1" class="show">
+                                    <thead>
+                                        <tr>
+                                            <th onclick="sortColumnStr(event, savedCountedCategoriesList)" name="true">
+                                                Категорія<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedCategoriesList, '')"
+                                                name="true">Кількість<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedCategoriesList, '')"
+                                                name="true">Співвідношення<span></span></th>
+                                            <th>
+                                                <button onclick="copyTableText(event)"
+                                                    title="Скопіювати дані таблиці"></button>
+                                                <button class="check-btn"></button>
+                                                <span class="copy-label">Скопійовано!</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <!-- CATEGORIES TABLE 1 END -->
+
+                                <!-- LANGUAGES TABLE 2 START -->
+                                <table id="data-table-2">
+                                    <thead>
+                                        <tr>
+                                            <th onclick="sortColumnStr(event, savedCountedLanguagesList)" name="true">
+                                                Мова<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedLanguagesList, '')"
+                                                name="true">Кількість<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedLanguagesList, '')"
+                                                name="true">Співвідношення<span></span></th>
+                                            <th>
+                                                <button onclick="copyTableText(event)"
+                                                    title="Скопіювати дані таблиці"></button>
+                                                <button class="check-btn"></button>
+                                                <span class="copy-label">Скопійовано!</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <!-- LANGUAGES TABLE 2 END -->
+
+                                <!-- MANAGERS TABLE 3 START -->
+                                <table id="data-table-3">
+                                    <thead>
+                                        <tr>
+                                            <th onclick="sortColumnStr(event, savedCountedManagersPerfList)"
+                                                name="true">Менеджер<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedManagersPerfList, 'chatsCount')"
+                                                name="true">Чатів<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedManagersPerfList, 'ticketsCount')"
+                                                name="true">Тікетів<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedManagersPerfList, 'convCount')"
+                                                name="true">Разом<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedManagersPerfList, 'convCount')"
+                                                name="true">Співвідношення<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedManagersPerfList, 'avgConvTime')"
+                                                name="true">Середня тривалість чату<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedManagersPerfList, 'avgFirstResp')"
+                                                name="true">Швидкість першої відповіді<span></span></th>
+                                            <!-- <th>
+                                                <button onclick="copyTableText(event)"
+                                                    title="Скопіювати дані таблиці"></button>
+                                                    <button class="check-btn"></button>
+                                                    <span class="copy-label">Скопійовано!</span>
+                                            </th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <!-- MANAGERS TABLE 3 END -->
+
+                                <!-- TAGS TABLE 4 START -->
+                                <table id="data-table-4">
+                                    <thead>
+                                        <tr>
+                                            <th onclick="sortColumnStr(event, savedCountedTagsList)" name="true">
+                                                Мітка<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedTagsList, '')" name="true">
+                                                Кількість<span></span></th>
+                                            <th onclick="sortColumnNum(event, savedCountedTagsList, '')" name="true">
+                                                Співвідношення<span></span></th>
+                                            <th>
+                                                <button onclick="copyTableText(event)"
+                                                    title="Скопіювати дані таблиці"></button>
+                                                <button class="check-btn"></button>
+                                                <span class="copy-label">Скопійовано!</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <!-- TAGS TABLE 4 END -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- DISPLAY DATA PART END -->
+            </div>
+        </main>
+        <!-- MAIN END -->
+
+        <!-- FOTTER START -->
+        <footer>
+            <div class="copyright-container">
+                <p>&copy; <span id="currYear">2023</span> - <a
+                        href="https://www.linkedin.com/in/roman-semeniuk-65269b1b6">Roman Semeniuk</a> - All
+                    Rights Reserved.</p>
+            </div>
+            <div class="version">
+                <p>v 0.7 display</p>
+            </div>
+        </footer>
+        <!-- FOTTER END -->
+    </div>
+
+    <!-- DIALOG WINDOW PART START -->
+    <div class="dialogWindow-container hide">
+        <div class="dialogWindow">
+            <div class="dialogWindow-header">
+                <h2>Зверніть увагу!</h2>
+                <p class="info-icon">&#8505;</p>
+                <div class="info-message">
+                    <p>Якщо у ваших звітах є записи які були неправильно опрацьовані з точки зору проставлених
+                        параметрів звернення (тобто наявність мітки категорії, або мітки прожубльовані і тд.) то вам
+                        потрібно обирати усі ті пункти які хочете прибрати з фінального звіту щоб не спотворювати данні.
+                    </p>
+                    <p>За замовчування усі подібні записи відмічені на видалення (пізніше ви зможете окремо завантажити
+                        файл з цими запитами для перевірки). Бувають такі опції:<br>
+                        - звернення без мітки категорії;<br>
+                        - запити в яких одночасно є мітка категорії разом з NO REPLY та/або SPAM;<br>
+                        - записи в яких мітка категорії дубльована;<br>
+                        - звернення в яких немає мітки мови (краще залишити невибраним).<br></p>
+                    <p>Після того як усі потрібні пункти обрані, потрібно підтвердити вибір галочкою "опції очистки
+                        перевірені", тоді кнопки "Очистити" та "Ігнорувати" стануть активними.</p>
+                    <p>Кнопка "Ігнорувати" - додасть усі спірні звернення у загальний звіт незалежно від обраних опцій.
+                    </p>
+                </div>
+            </div>
+            <div class="dialogWindow-content">
+            </div>
+            <div class="dialogWindow-control">
+                <label for="cleaningCheck" title="Переконайтеся що обрали/вимкнули потрібні опції для очищення">
+                    <input type="checkbox" name="cleaningCheck" id="cleaningCheck">опції очистки перевірені
+                </label>
+                <input type="button" id="dialogClean" value="Очистити" onclick="dialogClean()" disabled>
+                <input type="button" id="dialogIgnore" value="Ігнорувати" onclick="dialogIgnore()" disabled>
+            </div>
+        </div>
+    </div>
+    <!-- DIALOG WINDOW PART END -->
+
+    <!-- TEST START -->
+    <div class="test-container hide">
+        <!-- FILTER BY DATE START -->
+        <fieldset class="datesList-fieldset">
+            <legend id="dates-range-label" name="datesDropDown" onclick="showDropDown(event)">draft &#11206;</legend>
+            <div name="datesDropDown" id="datesDropDown" class="dropDown showDropDown">
+                <div name="datesDropDown" class="top-dates">
+                    <button name="datesDropDown" id="month-prev" onclick="dateSlidePage(event)" disabled>&lt;</button>
+                    <span name="datesDropDown" class="month-label">Вересень</span>
+                    <button name="datesDropDown" id="month-next" onclick="dateSlidePage(event)">&gt;</button>
+                </div>
+
+                <div name="datesDropDown" class="middle-dates">
+                    <button name="datesDropDown">Пн</button>
+                    <button name="datesDropDown">Вт</button>
+                    <button name="datesDropDown">Ср</button>
+                    <button name="datesDropDown">Чт</button>
+                    <button name="datesDropDown">Пт</button>
+                    <button name="datesDropDown">Сб</button>
+                    <button name="datesDropDown">Нд</button>
+                </div>
+
+                <div name="datesDropDown" class="bottom-dates" onclick="pickDate(event)">
+                </div>
+            </div>
+        </fieldset>
+        <!-- FILTER BY DATE END -->
+    </div>
+    <!-- TEST END -->
+
+
+    <script src="./js/main.js"></script>
+    <!-- <script src="./TEST/js/mainTEST.js"></script> -->
+</body>
+
+</html>
